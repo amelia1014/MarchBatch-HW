@@ -85,7 +85,7 @@ From Production.Product
 Where Color IN ('Red','Black') 
       AND ProductSubCategoryID = 1 
       OR ListPrice BETWEEN 1000 AND 2000
-Order by ProductID
+Order by ProductID;
 
 17.??
 Select ProductSubCategoryID
@@ -95,4 +95,4 @@ From Production.Product
 Where Color IN ('Red','Black') 
       AND ProductSubCategoryID = 1 
       OR ListPrice BETWEEN 1000 AND 2000
-Order by ProductID
+Order by ProductID;
