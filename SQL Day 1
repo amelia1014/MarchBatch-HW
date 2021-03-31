@@ -1,0 +1,98 @@
+1.
+Select ProductId, Name, Color, ListPrice 
+From Production.Product;
+
+2.
+Select ProductId, Name, Color, ListPrice 
+From Production.Product
+Where ListPrice = 0;
+
+3.
+Select ProductId, Name, Color, ListPrice 
+From Production.Product
+Where Color is NULL;
+
+4.
+Select ProductId, Name, Color, ListPrice 
+From Production.Product
+Where Color is NOT NULL;
+
+5.
+Select ProductId, Name, Color, ListPrice 
+From Production.Product
+Where Color is NOT NULL and ListPrice > 0;
+
+6.
+Select Name + ' : '+ Color
+From Production.Product
+Where Color is NOT NULL;
+
+7.
+Select 'Name: ' + Name + ' -- Color:' + Color as [Name and Color]
+From Production.Product
+Where Color is NOT NULL;
+
+8.
+Select ProductId, Name
+From Production.Product
+Where ProductId between 400 and 500;
+
+9.
+Select ProductId, Name, Color
+From Production.Product
+Where Color in ('Black', 'Blue');
+
+10.
+Select ProductId, Name, Color, ListPrice
+From Production.Product
+Where Name LIKE 's%';
+
+11.
+Select Name, ListPrice
+From Production.Product
+Where Name LIKE 's%'
+Order by Name;
+
+12.
+Select Name, ListPrice
+From Production.Product
+Where Name LIKE 'as%'
+Order by Name;
+
+13.
+Select Name, ListPrice
+From Production.Product
+Where Name LIKE 'spo[^k]%'
+Order by Name;
+
+14.
+Select DISTINCT Color
+From Production.Product
+Order by Color DESC;
+
+15.
+SELECT DISTINCT ProductSubcategoryID, Color 
+FROM Production.Product
+WHERE ProductSubcategoryID is NOT NULL 
+      AND Color is NOT NULL
+ORDER BY ProductSubcategoryID ASC, Color DESC
+
+16.
+Select ProductSubCategoryID
+      , LEFT([Name],35) AS [Name]
+      , Color, ListPrice 
+From Production.Product
+Where Color IN ('Red','Black') 
+      AND ProductSubCategoryID = 1 
+      OR ListPrice BETWEEN 1000 AND 2000
+Order by ProductID
+
+17.??
+Select ProductSubCategoryID
+      , LEFT([Name],35) AS [Name]
+      , Color, ListPrice 
+From Production.Product
+Where Color IN ('Red','Black') 
+      AND ProductSubCategoryID = 1 
+      OR ListPrice BETWEEN 1000 AND 2000
+Order by ProductID
