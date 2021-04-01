@@ -229,14 +229,60 @@ WHERE COUNT(Od.ProductId) > 100
 23.	List all of the possible ways that suppliers can ship their products. Display the results as below
 Supplier Company Name   	Shipping Company Name
 ---------------------------------            ----------------------------------
+
+SELECT S.CompanyName as 'Supplier Company Name', S2.CompanyName as 'Shipping Company Name'
+FROM Suppliers S
+LEFT JOIN Products P
+ON S.SupplierId = P.SupplierId
+LEFT JOIN OrderDetails Od
+ON P.ProductId = Od.ProductId
+LEFT JOIN Orders O
+ON Od.OrderId = O.OrderId
+LEFT JOIN Shippers S2
+ON O.ShipperId = S2.ShipperId
+
 24.	Display the products order each day. Show Order date and Product Name.
+
+SELECT O.OrderDate, P.ProductName
+FROM Orders O
+LEFT JOIN OrderDetails Od
+ON Od.OrderId = O.OrderId
+LEFT JOIN Products P
+ON ON P.ProductId = Od.ProductId
+
 25.	Displays pairs of employees who have the same job title.
+
+SELCT E1.FirstNmae, E2.FirstName
+FROM Employees E1
+JOIN Employees E2
+ON E1.Title = E2.Title
+
 26.	Display all the Managers who have more than 2 employees reporting to them.
+
+SELCT E2.FirstName, E2.LastName
+FROM Employees E1
+JOIN Employees E2
+ON E1.ReportsTo = E2.FirstName
+WHERE COUNT(ReportsTo) > 2
+GROUP BY COUNT(ReportsTo)
+
 27.	Display the customers and suppliers by city. The results should have the following columns
 City 
 Name 
 Contact Name,
 Type (Customer or Supplier)
+
+SELECT S.City, S.CompanyName,S.ContactName
+FROM Suppliers S
+LEFT JOIN Products P
+ON S.SupplierId = P.SupplierId
+LEFT JOIN OrderDetails Od
+ON P.ProductId = Od.ProductId
+LEFT JOIN Orders O
+ON Od.OrderId = O.OrderId
+LEFT JOIN Customer C
+ON O.CustomerId = C.CustomerId
+
  28. Have two tables T1 and T2
 F1.T1	F2.T2
 1	2
@@ -244,4 +290,18 @@ F1.T1	F2.T2
 3	4
 
 Please write a query to inner join these two tables and write down the result of this query.
+
+SELECT *
+FROM T1
+JOIN T2
+ON T1.Id = T2.Id
+
+Result Would be 2,3
  29. Based on above two table, Please write a query to left outer join these two tables and write down the result of this query.
+ 
+SELECT *
+FROM T1
+LEFT JOIN T2
+ON T1.Id = T2.Id
+
+Result Would be 1,2,3
