@@ -1,0 +1,65 @@
+/*
+    A
+
+	LocName         Distance
+	   A               0
+	   B              50
+	   C              150
+	   D              299
+
+
+REsultset
+    LocName          Distance
+	B to A               50
+	C to B              100
+	D to C              149
+
+
+*/
+
+
+
+WITH CTE AS
+(
+    SELECT ROW_NUMBER() OVER(ORDER BY LocName) AS Row, LocName 
+    FROM A
+)
+
+SELECT a.LocName, a.LocName - b.LocName
+FROM CTE a LEFT JOIN
+     CTE b
+     ON a.ROW = b.ROW + 1;
+
+/*Methon two */
+SELECT LocName
+       ,LocName - LAG(LocName, 1) OVER (ORDER BY LocName)
+   FROM A
+/*
+           Employee
+		   Name     Salary    Department
+		   Smith     2000         HR
+		   Smith     2000         HR
+		   Peter     3000         QA
+		   Peter     3000         QA
+		   Peter     3000         QA
+		   John      3400         QA
+		   John      3400         QA
+		   John      3400         QA
+
+		   
+		   delete the duplicate only
+
+		   Employee
+		   Name     Salary    Department
+		   Smith     2000         HR
+		   Peter     3000         QA
+		   John      3400         QA
+
+*/
+
+SELECT [Name], Salary, Department
+    COUNT(*) AS CNT
+FROM Employee
+GROUP BY [Name], Salary, Department
+HAVING COUNT(*) > 1;
+
