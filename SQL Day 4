@@ -34,24 +34,131 @@ trigger is a special type of stored procedures that is automatically executed wh
 SQL Server provides us with two main types of triggers: the DML Triggers and the DDL triggers
 
 9.	What are the scenarios to use Triggers?
+The business has just asked you to add logic so that whenever an Account is inserted in Salesforce that a generic Contact is automatically 
+created and associated to the Account. Let’s call this Contact “Generic Gerry”.
+To solve for the business requirement the Salesforce Developer would create a Trigger on the Account Object and it would fire AFTER INSERT
+When the Trigger fires, the Apex code would create a Contact Named “Generic Gerry” and associate it to the Account.
+
 10.	What is the difference between Trigger and Stored Procedure?
+Stored procedures are a pieces of the code in written in PL/SQL to do some specific task. On the other hand, trigger is a stored procedure that runs 
+automatically when various events happen (eg update, insert, delete)
+
+
 Write queries for following scenarios
 Use Northwind database. All questions are based on assumptions described by the Database Diagram sent to you yesterday. When inserting, make up info if necessary. Write query for each step. Do not use IDE. BE CAREFUL WHEN DELETING DATA OR DROPPING TABLE.
 1.	Lock tables Region, Territories, EmployeeTerritories and Employees. Insert following information into the database. In case of an error, no changes should be made to DB.
 a.	A new region called “Middle Earth”;
+INSERT INTO Region (RegionId, RegionDescription)
+VALUES (5, “Middle Earth”);
 b.	A new territory called “Gondor”, belongs to region “Middle Earth”;
+INSERT INTO Territories 
+VALUES (11111, “Gondor”, 5);
+
 c.	A new employee “Aragorn King” who's territory is “Gondor”.
+INSERT INTO Employees (EmployeeId, LastName, FirstName,Territory)
+VALUES (10, “King”, “Aragorn", “Gondor”);
+
+
 2.	Change territory “Gondor” to “Arnor”.
-3.	Delete Region “Middle Earth”. (tip: remove referenced data first) (Caution: do not forget WHERE or you will delete everything.) In case of an error, no changes should be made to DB. Unlock the tables mentioned in question 1.
+UPDATE Territories
+SET TerritoryDescription = “Arnor”
+WHERE TerritoryID = 11111
+
+3.	Delete Region “Middle Earth”. (tip: remove referenced data first) (Caution: do not forget WHERE or you will delete everything.) 
+In case of an error, no changes should be made to DB. Unlock the tables mentioned in question 1.
+Delete FROM Region 
+Where RegionDescription= “Middle Earth” and RegionId = 5
+
+Delete FROM Territories 
+Where TerritoryId= 11111 and 
+TerritoryDescription = “Arnor” And RegionId = 5
+
 4.	Create a view named “view_product_order_[your_last_name]”, list all products and total ordered quantity for that product.
+create view view_product_order_Yang as
+ select p.ProductName, Count(o.Quantity) QuantityCount from Products p inner join
+[Order Details] o
+ on o.ProductID = p.ProductID
+ group by p.ProductName;
+ 
 5.	Create a stored procedure “sp_product_order_quantity_[your_last_name]” that accept product id as an input and total quantities of order as output parameter.
+alter proc spProductOrderQuant2
+ @id int,
+ @total int out
+ as
+ begin
+ select @id = view_product_quantity_order_Yang.ProductID,@total =
+ view_product_quantity_order_Yang.QuantityCount from
+ view_product_quantity_order_Yang
+ where view_product_quantity_order_Yang.ProductID = @id
+ end
+ 
 6.	Create a stored procedure “sp_product_order_city_[your_last_name]” that accept product name as an input and top 5 cities that ordered most that product combined with the total quantity of that product ordered from that city as output.
 7.	Lock tables Region, Territories, EmployeeTerritories and Employees. Create a stored procedure “sp_move_employees_[your_last_name]” that automatically find all employees in territory “Tory”; if more than 0 found, insert a new territory “Stevens Point” of region “North” to the database, and then move those employees to “Stevens Point”.
-8.	Create a trigger that when there are more than 100 employees in territory “Stevens Point”, move them back to Troy. (After test your code,) remove the trigger. Move those employees back to “Troy”, if any. Unlock the tables.
-9.	Create 2 new tables “people_your_last_name” “city_your_last_name”. City table has two records: {Id:1, City: Seattle}, {Id:2, City: Green Bay}. People has three records: {id:1, Name: Aaron Rodgers, City: 2}, {id:2, Name: Russell Wilson, City:1}, {Id: 3, Name: Jody Nelson, City:2}. Remove city of Seattle. If there was anyone from Seattle, put them into a new city “Madison”. Create a view “Packers_your_name” lists all people from Green Bay. If any error occurred, no changes should be made to DB. (after test) Drop both tables and view.
+8.	Create a trigger that when there are more than 100 employees in territory “Stevens Point”, move them back to Troy. (After test your code,) remove the trigger.
+Move those employees back to “Troy”, if any. Unlock the tables.
+
+create trigger trg_ins_yang on territories
+for update as
+if exists(select e.employeeid,count(t.TerritoryDescription)from Territories t
+join employeeterritories et on t.TerritoryID=et.TerritoryID
+join Employees e on et.EmployeeID=e.EmployeeID
+where t.TerritoryDescription='stevens point'
+group by e.EmployeeID
+having count(t.TerritoryDescription)>100)
+begin
+update Territories
+set TerritoryDescription='Tory' where TerritoryDescription='stevens point'
+End
+drop trigger trg_ins_yang
+
+9.	Create 2 new tables “people_your_last_name” “city_your_last_name”. 
+City table has two records: {Id:1, City: Seattle}, {Id:2, City: Green Bay}. 
+People has three records: {id:1, Name: Aaron Rodgers, City: 2}, {id:2, Name: Russell Wilson, City:1}, {Id: 3, Name: Jody Nelson, City:2}.
+Remove city of Seattle. If there was anyone from Seattle, put them into a new city “Madison”. 
+Create a view “Packers_your_name” lists all people from Green Bay. If any error occurred, no changes should be made to DB. 
+(after test) Drop both tables and view.
+
+create table people_Li(id int,name char(20),cityid int)
+create table city_Li(cityid int,city char(20))
+insert into people_Li(id,name,cityid)values(1,'Aaron Rodgers',2)
+insert into people_Li(id,name,cityid)values(2,'Russell Wilson',1)
+insert into people_Li(id,name,cityid)values(3,'Jody Nelson',2)
+insert into city_Li(cityid,city)values(1,'Settle')
+insert into city_Li(cityid,city)values(2,'Green Bay')
+
+create view Packers_Li as
+ select p.id, p.name from people_Li p inner join city_Li c on p.cityid=c.cityid
+ where c.city='Green bay'
+ begin tran
+ rollback
+ drop table people_Li
+ drop table city_Li
+ drop view Packers_yi_Li
+
+
 10.	 Create a stored procedure “sp_birthday_employees_[you_last_name]” that creates a new table “birthday_employees_your_last_name” and fill it with all employees that have a birthday on Feb. (Make a screen shot) drop the table. Employee table should not be affected.
-11.	Create a stored procedure named “sp_your_last_name_1” that returns all cites that have at least 2 customers who have bought no or only one kind of product. Create a stored procedure named “sp_your_last_name_2” that returns the same but using a different approach. (sub-query and no-sub-query).
+11.	Create a stored procedure named “sp_your_last_name_1” that returns all cites that have at least 2 customers who have bought no or only one kind of product. 
+Create a stored procedure named “sp_your_last_name_2” that returns the same but using a different approach. (sub-query and no-sub-query).
+
+create procsp move_employees_yang
+ @terroityname char(50) = 'tory'
+ as
+ if exists(select e.EmployeeID,count(t.TerritoryDescription) c from Territories t join
+ employeeterritories et on t.TerritoryID=et.TerritoryID
+ join Employees e on et.EmployeeID=e.EmployeeID
+ where TerritoryDescription=@terroityname and count(t.TerritoryDescription)>0)
+ begin
+ insert into
+ Territories(TerritoryID,TerritoryDescription,RegionID)values(98432,'Stevens
+ Point',11)
+ insert into Region(RegionID,RegionDescription)values(11,'North')
+ end
+ go
 12.	How do you make sure two tables have the same data?
+
+ Store the total data number for both table and do the union, and check, if the
+number of data for two table is not the same number of data with union table, then they do not have same data.
+ 
 14.
 First Name	Last Name	Middle Name
 John	Green	
@@ -69,6 +176,12 @@ Li	90	F
 Mi	95	M
 Find the top marks of Female students.
 If there are to students have the max score, only output one.
+
+Select Top 1 Student
+From Students
+Order By Marks Desc
+WHERE Sex = F
+
 16.
 Student	Marks	Sex
 Li	90	F
@@ -76,3 +189,7 @@ Ci	70	F
 Mi	95	M
 Bob	80	M
 How do you out put this?
+
+Select Student, Rank()OVER (Partition by Sex, Order By Marks, Sex
+From Students
+
