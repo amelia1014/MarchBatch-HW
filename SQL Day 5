@@ -1,0 +1,106 @@
+1.	What is an object in SQL?
+database, table, index, column, alias, view, stored procedure, partition, tablespace, resource group and other object names are known as identifiers
+2.	What is Index? What are the advantages and disadvantages of using Indexes?
+an index is a pointer to data in a table. An index in a database is very similar to an index in the back of a book.
+
+Advantages:
+Speed up SELECT query
+Helps to make a row unique or without duplicates(primary,unique) 
+If index is set to fill-text index, then we can search against large string values. for example to find a word from a sentence etc.
+
+Disadvantages:
+Indexes take additional disk space.
+indexes slow down INSERT,UPDATE and DELETE, but will speed up UPDATE if the WHERE condition has an indexed field.  INSERT, UPDATE and DELETE becomes slower because on each operation the indexes must also be updated. 
+
+3.	What are the types of Indexes?
+Clustered Index.
+Non-Clustered Index.
+Unique Index.
+Filtered Index.
+Columnstore Index.
+Hash Index.
+4.	Does SQL Server automatically create indexes when a table is created? If yes, under which constraints?
+SQL Server automatically creates a unique, clustered index if a clustered index does not already exist on the table or view
+
+5.	Can a table have multiple clustered index? Why?
+A table can't have multiple clustered indexes beacuse clustered index columns will be sorted in ascending order, 
+there will be abiguity which columns to be sorted if there are more than one clustered index on a table.
+
+6.	Can an index be created on multiple columns? Is yes, is the order of columns matter?
+A composite index is an index on multiple columns. 
+
+7.	Can indexes be created on views?
+Yes
+
+8.	What is normalization? What are the steps (normal forms) to achieve normalization?
+Normalization is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, 
+Update and Deletion Anomalies.
+Whenever the first rule is applied, the data is in “first normal form“. Then, the second rule is applied and the data is in “second normal form“. 
+The third rule is then applied and the data is in “third normal form“. Fourth and fifth normal forms are then achieved from their specific rules
+
+9.	What is denormalization and under which scenarios can it be preferable?
+data where we think it will help us the most. We can use extra attributes in an existing table, add new tables, or even create instances 
+of existing tables. The usual goal is to decrease the running time of select queries by making data more accessible to the queries or by 
+generating summarized reports in separate tables. This process can bring some new problems, and we�ll discuss them later.
+
+10.	How do you achieve Data Integrity in SQL Server?
+Using transaction we can achive data integity. 
+
+11.	What are the different kinds of constraint do SQL Server have?
+Primary key constraint, froeign key constraint, unique key constraint, check constraint
+
+12.	What is the difference between Primary Key and Unique Key?
+Primary key can't have null value but unique key can. There will be only one foreign key per table where as there can be any number of unique keys per table
+
+13.	What is foreign key?
+A foreign key (FK) is a column or combination of columns that is used to establish and enforce a link between the data in two tables. 
+You can create a foreign key by defining a FOREIGN KEY constraint when you create or modify a table.
+
+14.	Can a table have multiple foreign keys?
+Yes 
+15.	Does a foreign key have to be unique? Can it be null?
+Foreign key need not be unique and it can be null too
+16.	Can we create indexes on Table Variables or Temporary Tables?
+No
+17.	What is Transaction? What types of transaction levels are there in SQL Server?
+Transaction sql server will keep databse in consitant state. Threre are many trnsaction levels in sql server like, red commited, read uncommitted, repeatble read , serializable and snapshot isolation level transaction.
+
+Write queries for following scenarios
+1.	Write an sql statement that will display the name of each customer and the sum of order totals placed by that customer during the year 2002
+ Create table customer(cust_id int,  iname varchar (50)) create table order(order_id int,cust_id int,amount money,order_date smalldatetime)
+select CustomerID as cust_id , ContactName as iname into #customer
+from Customers
+select od.OrderID as order_id, CustomerID as cust_id , UnitPrice as amout, OrderDate as order_date into #order 
+from [Order Details] od join Orders o on o.OrderID=od.OrderID
+select c.iname,sum(amout) from #customer c join #order o on c.cust_id = o.cust_id
+where DATEPART(yyyy,order_date)='1996'
+group by c.iname
+ 2.  The following table is used to store information about company’s personnel:
+Create table person (id int, firstname varchar(100), lastname varchar(100)) write a query that returns all employees whose last names  start with “A”.
+declare @person table(id int,firstname nvarchar(100),lastName nvarchar(100))
+insert into @person
+select EmployeeID,FirstName,LastName from Employees
+select * from @person where lastname like 'A%'
+3.  The information about company’s personnel is stored in the following table:
+Create table person(person_id int primary key, manager_id int null, name varchar(100)not null) The filed managed_id contains the person_id of the employee’s manager.
+Please write a query that would return the names of all top managers(an employee who does not have  a manger, and the number of people that report directly to this manager.
+declare @person1 table(person_id int,manager_id int,name nvarchar(100))
+insert into @person1
+select EmployeeID,ReportsTo,FirstName+''+LastName from Employees
+select person_id,(select count(*)  from @person1 p2 where p2.manager_id=p1.person_id group by manager_id) as numberOfEmployees from @person1 p1
+where manager_id is null and person_id in (select manager_id from @person1)
+4.  List all events that can cause a trigger to be executed.
+insert ,update, delete statements can cause trigger to happen
+
+5. Generate a destination schema in 3rd Normal Form.  Include all necessary fact, join, and dictionary tables, and all Primary and Foreign Key relationships.  The following assumptions can be made:
+a. Each Company can have one or more Divisions.
+b. Each record in the Company table represents a unique combination 
+c. Physical locations are associated with Divisions.
+d. Some Company Divisions are collocated at the same physical of Company Name and Division Name.
+e. Contacts can be associated with one or more divisions and the address, but are differentiated by suite/mail drop records.status of each association should be separately maintained and audited.
+
+create table Company(companyid int primary key, companyname varchar(100) not null) create table Division(divisionid int primary key, divisionname varchar(100) not null)
+create table Contacts(companyid int foreign key, divisionid int foreign key, locationid varchar(100) foreign key, suitid int foreign key,mail varchar(100), primary key (companyid, divisionid, locationid,suitid))
+create table Physical_location(locationid int primary key, address varchar(100) not null)
+create table Contacts_address(suitid int primary key,mail varchar(100))
+
