@@ -1,0 +1,135 @@
+
+1.
+<html>
+<a href=”https://antra.net/”>
+   <img src="\users\Dekstop\Antralogo.png">
+</a>
+<table border=“1”>
+<tr> <th> Business Advisory Services </th>
+<th> Technology Services </th> 
+<th> Professional Services </th></tr>
+<tr>  <td> Our business advisory services assist our clients to align IT capabilities with their business needs to drive growth and productivity. Hence deriving a greater value from IT! We continually seek better ways of collaborating with our clients, work more cohesively to understand their business issues </td>
+<td> Harness the power of emerging technologies while leveraging most out of the legacy IT. Antra offers full spectrum of technology services for business to achieve its business goals .Our differentiation starts with core fundamental elements required for your technology enablement. </td> 
+<td>Our motto is to bridge skill gap, and foster on agile technologies to support growth of various organizations! Antra’s full range of workforce solutions and service delivery models equips our clients with the right people, skills and competencies required to get IT done. </td>
+</tr>
+</table>
+</html>
+
+2.
+<html>
+<TABLE BORDER=1 width=50%>
+<CAPTION>  <h1>Web fundamentals exam results <h1> </Caption>
+<TR><TH>N</TH><TH>First name</TH><TH>Last name</TH>><TH>Score</TH></TR>
+<TR><TD >01</TD><TD>< Gosho </TD><TD>Goshev</TD>><TD>500</TD></TR>
+<TR><TD >02</TD><TD>< Tosho </TD><TD>Toshev</TD>><TD>500</TD></TR>
+<TR><TD >03</TD><TD>< Pesho </TD><TD>Peshev</TD>><TD>500</TD></TR>
+<TR><TD >04</TD><TD>< Gensho </TD><TD>Genshev</TD>><TD>500</TD></TR>
+<TR><TD >05</TD><TD>< Draga </TD><TD>Graganova</TD>><TD>500</TD></TR>
+<tr> <td colspan=4> Average score from 05 participants: 500</td> </tr>
+</TABLE>
+</html>
+
+3.
+<html>
+<TABLE BORDER=1 width=50%>
+<tr> <td rowspan=2> <img src="\users\Dekstop\Antralogo.png"></td> </tr>
+<TR><TD >Software</TD></TR>
+<TR><TD >Developer</TD></TR>
+</TABLE>
+</html>
+
+4.
+<html>
+<TABLE BORDER=1 width=50%>
+<tr> <td rowspan=2> <a href=”https://antra.net/”>
+   <img src="\users\Dekstop\Antralogo.png">
+</a>
+</td> </tr>
+<TR><TD ><form action="/action_page.php">
+  <label for="search">Search:</label>
+  <input type="text" id="search" name="search"><br><br>
+  <input type="search" value="search">
+</form> </TD></TR>
+<TR><TD ><ul><li>News</li>
+<li>About the University</li>
+<li>Training course</li>
+<li>For companies</li>
+<li>Forum</li>
+<li>Contacts</li>
+</ul></TD></TR>
+</TABLE>
+</html>
+5.
+<html>
+<TABLE BORDER=1 width=50%>
+<tr> <td colspan=4> <B>Antra Life</B>
+</td> </tr>
+<TR><TD colspan=2>Google</TD><TD colspan=2>Github</TD></TR>
+<TR><TD>FB</TD><TD>Gmail</TD><TD>Youtube</TD><TD>2048</TD></TR>
+<TR><TD>Food</TD><TD colspan=2>Game</TD><TD> 
+<TABLE BORDER=1 width=50%>
+<tr> <TD>Social life</td> </tr>
+<tr> <TD>Sleep</td> </tr>
+</table>
+<TR><TD colspan=3><B>Beer></B></TD><TD>WC</TD></TR>
+</TABLE>
+</html>
+
+6.
+<html>
+<TABLE BORDER=1 width=50%>
+<tr> <td colspan=4> <button type="button" onclick="https://antra.net/”">Antra Life</button>
+</td> </tr>
+<TR><TD colspan=2><button type="button" onclick="https://antra.net/”">Google</button></TD><TD colspan=2><button type="button" onclick="https://antra.net/”">Github</button></TD></TR>
+<TR><TD><button type="button" onclick="https://antra.net/”">FB</button></TD>
+<TD><button type="button" onclick="https://antra.net/”">Gmail</button></TD>
+<TD><button type="button" onclick="https://antra.net/”">Youtube</button></TD>
+<TD><button type="button" onclick="https://antra.net/”">2048</button></TD></TR>
+<TR><TD><button type="button" onclick="https://antra.net/”">Food</button></TD>
+<TD colspan=2><button type="button" onclick="https://antra.net/”">Game</button></TD><TD> 
+<TABLE BORDER=1 width=50%>
+<tr> <TD><button type="button" onclick="https://antra.net/”">Social life</button></td> </tr>
+<tr> <TD><button type="button" onclick="https://antra.net/”">Sleep</button></td> </tr>
+</table>
+<TR><TD colspan=3><button type="button" onclick="https://antra.net/”">Beer>>></button></TD>
+<TD><button type="button" onclick="https://antra.net/”">WC</button></TD></TR>
+</TABLE>
+</html>
+
+7.
+<html>
+<head>
+<body>
+<form name="calculator">
+<table><tr>
+<td colspan="4">
+<input type="text" name="display" id="display" disabled></td></tr>
+<tr>
+<td><input type="button" name="one" value="1" onclick="calculator.display.value += '1'"></td>
+<td><input type="button" name="two" value="2" onclick="calculator.display.value += '2'"></td>
+<td><input type="button" name="three" value="3" onclick="calculator.display.value += '3'"></td>
+<td><input type="button" class="operator" name="plus" value="+" onclick="calculator.display.value += '+'"></td>
+</tr>
+<tr>
+<td><input type="button" name="four" value="4" onclick="calculator.display.value += '4'"></td>
+<td><input type="button" name="five" value="5" onclick="calculator.display.value += '5'"></td>
+<td><input type="button" name="six" value="6" onclick="calculator.display.value += '6'"></td>
+<td><input type="button" class="operator" name="minus" value="-" onclick="calculator.display.value += '-'"></td>
+</tr>
+<tr>
+<td><input type="button" name="seven" value="7" onclick="calculator.display.value += '7'"></td>
+<td><input type="button" name="eight" value="8" onclick="calculator.display.value += '8'"></td>
+<td><input type="button" name="nine" value="9" onclick="calculator.display.value += '9'"></td>
+<td><input type="button" class="operator" name="times" value="x" onclick="calculator.display.value += '*'"></td>
+</tr>
+<tr>
+<td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
+<td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
+<td><input type="button" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>
+<td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
+</tr>
+</table>
+</form>
+</body>
+</head>
+</html>
