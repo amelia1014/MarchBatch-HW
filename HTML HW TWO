@@ -1,0 +1,393 @@
+1. Sign-up form
+<!DOCTYPE html>
+<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+<body>
+
+<h2>Modal Signup Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <hr>
+      <label for="fname"><b>First Name</b></label>
+      <input type="text" placeholder="First Name" name="fname" required>
+      
+      <label for="lname"><b>Last Name</b></label>
+      <input type="text" placeholder="Last Name" name="lname" required>
+      
+      <label for="mobile"><b>Mobile No.</b></label>
+      <input type="text" placeholder="Enter Mobile No." name="mobile" required>
+      
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Confirm Password" name="psw-repeat" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="agreement" style="margin-bottom:15px"> By clicking Register, you agree to the <a href="#" style="color:dodgerblue">Term and Conditions</a> set out by
+        this site, including our cookie use.
+      </label>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+2.
+
+Result Size: 705 x 672
+                    <input type="submit" value="Login" /> 
+                </p>
+                <p class="change_link">
+                    Not a member yet ?
+                    <a href="#toregister" class="to_register">Join us</a>
+                </p>
+            </form>
+        </div>
+<div id="register" class="animate form">
+            <form  action="mysuperscript.php" autocomplete="on"> 
+            <h1>Enter the system</h1>
+            
+            <p>It is necessary to login your account in order to sign in for a course<p>
+                <h1> Are you new?Register </h1> 
+                <p> 
+                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                </p>
+                <p> 
+                    <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                </p>
+                <p> 
+                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                </p>
+                <p> 
+                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                </p>
+                <p class="signin button"> 
+                    <input type="submit" value="Sign up"/> 
+                </p>
+                <p class="change_link">  
+                    Already a member ?
+                    <a href="#tologin" class="to_register"> Go and log in </a>
+                </p>
+            </form>
+        </div>
+        
+    </div>
+</div>  
+
+
+3.
+<div id="search-form">
+    <div id="header">
+      <h1>SEARCH FOR CHEAP FLIGHTS</h1>
+    </div>
+    <section>
+      <div class="flight" id="flightbox">
+        
+        <form id="flight-form">
+        <!-- TRIP TYPE -->
+        <div id="flight-type">
+          <div class="info-box">
+            <input type="radio" name="flight-type" value="Return" id="return" checked />
+            <label for="return">RETURN</label>
+          </div>
+          <div class="info-box">
+            <input type="radio" name="flight-type" value="Single" id="one-way" />
+            <label for="one-way">ONE WAY</label>
+          </div>
+        </div>
+        
+        <!-- FROM/TO -->
+        <div id="flight-depart">
+          <div class="info-box">
+            <label for="">LEAVING FROM</label>
+            <input type="text" id="dep-from" />
+            <div id="depart-res"></div>
+          </div>
+          <div class="info-box" id="arrive-box">
+            <label for="">ARRIVING AT</label>
+            <input type="text" id="dep-to" />
+            <div id="arrive-res"></div>
+          </div>
+        </div>
+        
+        <!-- FROM/TO -->
+        <div id="flight-dates">
+          <div class="info-box">
+            <label for="">LEAVING ON</label>
+            <input type="text" id="leave-date" readonly />
+          </div>
+          <div class="info-box" id="return-box">
+            <label for="">RETURNING ON</label>
+            <input type="text" id="return-date" readonly />
+          </div>
+        </div>
+        
+        <!-- PASSENGER INFO -->
+        <div id="flight-info">
+          <div class="info-box">
+            <label for="adults">ADULTS</label>
+            <select name="adults" id="adults">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="info-box">
+            <label for="children">CHILDREN</label>
+            <select name="children" id="children">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="0">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="info-box">
+            <label for="class-type">CLASS</label>
+            <select name="class-type" id="class-type">
+              <option value="Economy">ECONOMY</option>
+              <option value="Business">BUSINESS</option>
+              <option value="First">FIRST CLASS</option>
+            </select>
+          </div>
+      </div>
+      
+        <!-- SEARCH BUTTON -->
+      <div id="flight-search">
+        <div class="info-box">
+          <input type="submit" id="search-flight" value="SEARCH FLIGHTS"/>
+        </div>
+      </div>
+        
+      </form> 
+      </div>
+    </section>
+  
+    <div id="calender">
+      <div class="nav">
+        <button id="prev"><</button>
+        <p><span id="month"></span>
+          <span id="year"></span></p>
+        <button id="next">></button>
+      </div>
+      <table id="cal"></table>
+      </div>
+      
+</div>
+<div id="confirm"></div>
+
+4.
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click on the "Choose File" button to upload a file:</p>
+
+<form action="/action_page.php">
+  <input type="file" id="myFile" name="filename">
+  <input type="submit">
+</form>
+
+<div class="search-container">
+    <form action="/action_page.php">
+    <p>Or search in wrodpress<p>
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</body>
+</html>
+
+5.
+<html>
+<head>
+    <link href="Style.css" rel="stylesheet" />
+    <title>facebook home page html code</title>
+</head>
+<body>
+    <div id="header_wrapper">
+        <div id="header">
+            <form action="post">
+                <li>Email or Phone<br><input type="text" name="email"></li>
+                <li>Password<br><input type="password" name="password"><br><a href="">Forgotten account?</a></li>
+                <li><input type="submit" name="login" value="Log In"></li>
+            </form>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="div1">
+        </div>
+        <div id="div2">
+            <h1>Create an account</h1>
+            <p>It's free and always will be.</p>
+            <li><input type="text" placeholder="First Name" id="Firstname"><input type="text" placeholder="Surname" id="surname"></li>
+            <li><input type="text" placeholder="Mobile number or email"></li>
+            <li><input type="password" placeholder="New password"></li>
+            <p>Birthday</p>
+            <li>
+                <select><option>Day</option></select>
+                <select><option>Month</option></select>
+                <select><option>Year</option></select>
+                <a href="">Why do I need to provide my date of birth?</a>
+            </li>
+            <li><input type="radio">Female <input type="radio">Male</li>
+            <li id="terms">By clicking Create an account, you agree to our <a href="">Terms</a> and that <br>you have read our <a href="">Data Policy</a>, including our <a href="">Cookie Use</a>.</li>
+            <li><input type="submit" value="Create an account"></li>
+            <li id="create_page"><a href="">Create a Page</a> for a celebrity, band or business.</li>
+        </div>
+    </div>
+    <div id="footer_wrapper">
+        <div id="footer">
+            <a href="#">Sign Up</a><a href="#">Log In</a><a href="#">Messenger</a><a href="#">DotNetTec</a><a href="#">Mobile</a><a href="#">Find Friends</a>
+            <a href="#">Badges</a><a href="#">People</a><a href="#">Pages</a><a href="#">Places</a><a href="#">Games</a><a href="#">Locations</a>
+            <a href="">Celebrities</a><a href="">Groups</a><a href="">Moments</a><a href="">About</a>
+            <a href="">Create Advert</a><a href="">Create Page</a><a href="">Developers</a>
+            <a href="">Careers</a><a href="">Privacy</a><a href="">Cookies</a><a href="">Ads</a><a href="">Terms</a><a href="">Help</a>
+        </div>
+    </div>
+</body>
+</html>
+
