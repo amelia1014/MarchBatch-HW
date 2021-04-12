@@ -476,33 +476,32 @@ h1 small {font-size:56.5%; line-height:1;  }
   
   <p><em style="font-size:110%;">Welcome to home page <a href="https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/">full-width elements</a> without using max-width on paragraphs, negative margins, or other common hacks.</em></p>
 
-  <blockquote class="Prose-splash"><inner><q>When words become unclear, I shall focus with photographs. When images become inadequate, I shall be content with silence.</q>
+  <blockquote class="Prose-splash"><inner><q>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+  when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</q>
     <cite>— Ansel Adams</cite></inner></blockquote>
 
 
   
-<p>Great photos have power.</p>
+<p>Our Free products</p>
 
   
-<p>Photo can boost sales, gather interest and tell stories.  Your Images can tell your viewers what your website is about before they’ve read a single sentence. Great product photos do more to sell merchandise than pages of text ever could.</p>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
   <figure class="Prose-splash">
   <img src="http://www.launch2success.com/wp-content/uploads/2017/02/photography.jpg" />
-    <figcaption> <i>Ah, the power of a giant lens.</i> </figcaption>
+    <figcaption> <i>News</i> </figcaption>
   </figure>
   
-<p>But you probably already know that.</p>
+<p>News News News</p>
 
-<p>What you probably don’t know, is how to properly use images to make your website more effective.  Know that such a thing is possible, and actually executing it are two separate things.</p>
-
-<p>In this article, I’m going to show you how to get great photos, edit them, and make them work for you!</p>
   
  <p> <a href="http://www.launch2success.com/guide/website-photography-guide-2017/">Read Full Article...</a></p>
    <blockquote class="Prose-splash">
     <inner>
-      <p>This is my own implementation of a concept  from  <a href="https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/">Tyler Sticka</a>.</p>
-    <p>I really like this concept, as it pulls off this layout without the usual hackery like crazy max-widths, negative margins, etc.</p>
-      <p>However, it's not quite ready for production sites yet as it doesn't currently work in browsers that don't support CSS grid.</p>
+      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
+      "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
     </inner>
   </blockquote>
   
