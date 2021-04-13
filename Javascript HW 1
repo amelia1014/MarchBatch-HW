@@ -1,0 +1,67 @@
+1.
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+};
+
+let sum = 0;
+for (let key in salaries) {
+  sum += salaries[key];
+}
+
+alert(sum); // 390
+
+2.
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] == 'number') {
+      obj[key] *= 2;
+    }
+  }
+}
+3.
+class checkEmailId{  
+   public static void main(String args[]){  
+	let str = "@";  
+  let str = ".";
+   if (str.includes("@", ".")) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
+}
+
+4.
+function truncate(str, maxlength) {
+  return (str.length > maxlength) ?
+    str.slice(0, maxlength - 1) + '…' : str;
+}
+
+5. 
+var arr = [“James”,“Brennie”];
+arr.push(“Robert” );
+
+console.log(arr);
+console.log(str.replace(str.substring(2), “Calvin”));
+var theRemovedElement = arr.shift(); // theRemovedElement == 1
+console.log(arr);
+arr.unshift("Rose");
+arr.unshift("Regal");
+console.log(arr);
+
+7.
+String SUPPORTED_DOMAIN="hackerrank.com";
+    String emails[] = { "julia@hackerrank.com", "julia_@hackerrank.com", "julia_0@hackerrank.com", "julia0_@hackerrank.com",
+            "julia@gmail.com" };
+    String patternst = "^[a-z]{1,6}_?\\d{0,4}@"+SUPPORTED_DOMAIN;
+    Pattern pattern = Pattern.compile(patternst);
+    for (String email : emails) {
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.find()) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
+    }
+
