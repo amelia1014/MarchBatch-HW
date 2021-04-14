@@ -1,0 +1,255 @@
+1.
+<!DOCTYPE html>
+ <html lang="en">
+
+   <head>
+     <h1> UserList</h1>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+     <style>
+     </style>
+   </head>
+
+   <body>
+     <div class="container">
+       <table class="table table-responsive-sm ">
+         <thead>
+           <tr>
+             <th>id</th>
+             <th>mygoals</th>
+             <th>future</th>
+           </tr>
+         </thead>
+         <tbody id="t">
+         </tbody>
+         <thead>
+           <tr>
+             <th>id</th>
+             <th>mygoals</th>
+             <th>future</th>
+           </tr>
+         </thead>
+         <tbody id="t2">
+         </tbody>
+       </table>
+       <select id="Select" name="name"></select>
+     </div>
+     <script>
+       fetch("https://fakerestapi.azurewebsites.net/api/Users", {
+         method: "GET",
+         headers: {
+           "x-api-key": "p*****w"
+         }
+       }).then(res => {
+         res.json().then(t => {
+           console.log(t);
+           var p = "";
+           var p2 = "";
+
+           p += "<tr>";
+           p += "<td>" + t.id + "</td>";
+           p2 += "<td>" + t.Userlist + "</td>";
+         
+
+           document.getElementById("t").insertAdjacentHTML("beforeend", p);
+           document.getElementById("t2").insertAdjacentHTML("beforeend", p2);
+         })
+       }).catch(err => {
+         console.log("ERROR: " + err);
+       });
+
+       fetch("https:******.com/", {
+         method: "GET",
+         headers: {
+           "x-api-key": "p*****w"
+         }
+       }).then(res => {
+         res.json().then(t => {
+           for (var i = 0; i < t.length; i++) {
+             var s = document.getElementById("Select");
+             var o = document.createElement("option");
+             option.text = t[i].id + ' ' + t[i].mygoals;
+             s.add(o);
+           }
+         })
+       })
+
+     </script>
+   </body>
+
+ </html>
+
+
+2.
+<!DOCTYPE html>
+ <html lang="en">
+
+   <head>
+     <h1>BookList</h1>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+     <style>
+     </style>
+   </head>
+
+   <body>
+     <div class="container">
+       <table class="table table-responsive-sm ">
+         <thead>
+           <tr>
+             <th>id</th>
+             <th>mygoals</th>
+             <th>future</th>
+           </tr>
+         </thead>
+         <tbody id="t">
+         </tbody>
+         <thead>
+           <tr>
+             <th>id</th>
+             <th>mygoals</th>
+             <th>future</th>
+           </tr>
+         </thead>
+         <tbody id="t2">
+         </tbody>
+       </table>
+       <select id="Select" name="name"></select>
+     </div>
+     <script>
+       fetch("https://fakerestapi.azurewebsites.net/api/Books", {
+         method: "GET",
+         headers: {
+           "x-api-key": "p*****w"
+         }
+       }).then(res => {
+         res.json().then(t => {
+           console.log(t);
+           var p = "";
+           var p2 = "";
+
+           p += "<tr>";
+           p += "<td>" + t.id + "</td>";
+           p += "<td>" + t.Booknames + "</td>";
+           p += "<td>" + t.Author + "</td>";
+           p2 += "<td>" + t.id + "</td>";
+           p2 += "<td>" + t.publishtime + "</td>";
+        
+
+           document.getElementById("t").insertAdjacentHTML("beforeend", p);
+           document.getElementById("t2").insertAdjacentHTML("beforeend", p2);
+         })
+       }).catch(err => {
+         console.log("ERROR: " + err);
+       });
+
+       fetch("https://fakerestapi.azurewebsites.net/api/Books", {
+         method: "GET",
+         headers: {
+           "x-api-key": "p*****w"
+         }
+       }).then(res => {
+         res.json().then(t => {
+           for (var i = 0; i < t.length; i++) {
+             var s = document.getElementById("Select");
+             var o = document.createElement("option");
+             option.text = t[i].id + ' ' + t[i].mygoals;
+             s.add(o);
+           }
+         })
+       })
+
+     </script>
+   </body>
+
+ </html>
+
+
+
+3.
+<!DOCTYPE html>
+ <html lang="en">
+
+   <head>
+     <h1>Authors</h1>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+     <style>
+     </style>
+   </head>
+
+   <body>
+     <div class="container">
+       <table class="table table-responsive-sm ">
+         <thead>
+           <tr>
+             <th>id</th>
+             <th>mygoals</th>
+             <th>future</th>
+           </tr>
+         </thead>
+         <tbody id="t">
+         </tbody>
+         <thead>
+           <tr>
+             <th>id</th>
+             <th>mygoals</th>
+             <th>future</th>
+           </tr>
+         </thead>
+         <tbody id="t2">
+         </tbody>
+       </table>
+       <select id="Select" name="name"></select>
+     </div>
+     <script>
+       fetch("https://fakerestapi.azurewebsites.net/api/Authors", {
+         method: "GET",
+         headers: {
+           "x-api-key": "p*****w"
+         }
+       }).then(res => {
+         res.json().then(t => {
+           console.log(t);
+           var p = "";
+     
+
+           p += "<tr>";
+           p += "<td>" + t.id + "</td>";
+           p += "<td>" + t.Fname + "</td>";
+           p += "<td>" + t.Lname + "</td>";
+
+
+           document.getElementById("t").insertAdjacentHTML("beforeend", p);
+         })
+       }).catch(err => {
+         console.log("ERROR: " + err);
+       });
+
+       fetch("https:******.com/", {
+         method: "GET",
+         headers: {
+           "x-api-key": "p*****w"
+         }
+       }).then(res => {
+         res.json().then(t => {
+           for (var i = 0; i < t.length; i++) {
+             var s = document.getElementById("Select");
+             var o = document.createElement("option");
+             option.text = t[i].id + ' ' + t[i].mygoals;
+             s.add(o);
+           }
+         })
+       })
+
+     </script>
+   </body>
+
+ </html>
+
